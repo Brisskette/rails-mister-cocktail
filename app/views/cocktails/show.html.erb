@@ -1,12 +1,11 @@
 <h1><%= "Focus on #{@cocktail.name}" %> </h1>
 
-
+<p>Ingredients :</p>
 
 <ul>
   <% @cocktail.ingredients.each do |ingredient| %>
-      <li><%= "Ingredients = #{ingredient.name} : #{@cocktail.doses[0].description}" %></li>
+      <% @cocktail.doses.each do |dose| %>
+        <li><%= "#{ingredient.name} : #{dose.description}" %></li>
     <% end  %>
+  <% end  %>
 </ul>
-
-
-

@@ -20,7 +20,7 @@ end
 
 private
   def user_params
-    params.require(:dose).permit(:description)
+    params.require(:dose).permit(:description, :cocktail_id, :ingredient_id)
   end
 
 end
