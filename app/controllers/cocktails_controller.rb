@@ -7,21 +7,26 @@ class CocktailsController < ApplicationController
     @cocktail = Cocktail.find(params[:id])
   end
 
- def new
-  @cocktail = Cocktail.new
- end
-
- def create
-  # raise
-  @cocktail = Cocktail.new(user_params)
-  @cocktail.save
-  redirect_to cocktail_path(@cocktail)
- end
-
- private
-
-  def user_params
-    params.require(:cocktail).permit(:name)
+  def new
+    @cocktail = Cocktail.new
   end
+
+  def create
+    # raise
+    @cocktail = Cocktail.new(user_params)
+    if @cocktail.save
+      @cocktail.save
+      redirect_to cocktail_path(@cocktail)
+    else
+     render :new
+   end
+ end
+
+
+private
+
+def user_params
+  params.require(:cocktail).permit(:name)
+end
 
 end
