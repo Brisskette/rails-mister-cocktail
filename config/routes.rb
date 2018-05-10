@@ -9,6 +9,15 @@ Rails.application.routes.draw do
 
   get 'cocktails/:id', to: "cocktails#show", as: :cocktail
 
+  # -----------------DOSES CONTROLLER ---------------------
+
+  get 'cocktails/:id/doses/new', to: "doses#new"
+
+  post 'cocktails/:id/doses', to: "doses#create"
+
+  get 'cocktails/:id/doses', to: "doses#show", as: :doses
+
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
